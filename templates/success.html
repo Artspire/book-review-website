@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Success
+{% endblock %}
+
+{% block main %}
+    <div class="container">
+        <div class="card rounded shadow my-5">
+            <div id="cb-2" class="card-body p-5">
+                <img src="{{ url_for('static', filename='success.png') }}" alt="" width="10%">
+                <h3 id="success-message">{{ message }}</h3>
+            </div>
+        </div>
+    </div>
+{% endblock %}

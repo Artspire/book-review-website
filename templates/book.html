@@ -1,0 +1,83 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Book
+{% endblock %}
+
+{% block main %}
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <div class="container">
+                    <div class="card rounded">
+                        <div id="cb-2" class="card-body p-5">
+                            {% for detail in details %}
+                                {% for item in book %}
+                                    <h2 id="book-title">{{ detail.title }}</h2>
+                                    <ul id="book-info">
+                                        <li><b>Author: </b>{{ detail.author }}</li>
+                                        <li><b>Year of publication: </b>{{ detail.year }}</li>
+                                        <li><b>ISBN: </b>{{ detail.isbn }}</li>
+                                        <li><b>Average rating*: </b>{{ item.average_rating }}</li>
+                                        <li><b>Number of reviews*: </b>{{ item.work_ratings_count }}</li>
+                                    </ul>
+                                {% endfor %}
+                            <p id="goodreads">*Data derived from <a href="https://www.goodreads.com/">Goodreads</a> and obtained through the <a href="https://www.goodreads.com/api">Goodreads API</a></p>
+                        </div>
+                    </div>
+                </div>
+                    <div class="container" id="review-container">
+                        <div class="card rounded">
+                            <div id="cb-4" class="card-body p-5">
+                                <h2 id="review-box">Reviews</h2>
+                                {% for review in reviews %}
+                                <p id="review-box-text"><b id="review-user">{{ review.username }}</b> rated  this book <b id="rating">{{ review.rating }} out of 5</b><br>
+                                <i>{{ review.review }}</i></p>
+                                {% else %}
+                                <p><i>There a no reviews for this book yet.</i></p>
+                                {% endfor %}
+                            </div>
+                        </div>
+                   </div>
+            </div>
+            <div class="col-6">
+                <div class="container">
+                    <div class="card rounded">
+                        <div id="cb-3" class="card-body p-5">
+                            <div style="padding-bottom: 10px">
+                                <h3>LEAVE A REVIEW</h3>
+                            </div>
+                            <form id="book" action="{{ url_for('book', book_isbn=detail.isbn) }}" method="post">
+                            {% endfor %}
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1">
+                                    <label class="form-check-label" for="inlineRadio1">1</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2">
+                                    <label class="form-check-label" for="inlineRadio2">2</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="3">
+                                    <label class="form-check-label" for="inlineRadio3">3</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="4">
+                                    <label class="form-check-label" for="inlineRadio4">4</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio5" value="5">
+                                    <label class="form-check-label" for="inlineRadio5">5</label>
+                                </div>
+                                <div class="form-group" id="search-box">
+                                    <textarea class="form-control" id="reviewbox" rows="5" name="review" placeholder="Type your review here..."></textarea>
+                                </div>
+                                    <button class="btn btn-primary" type="submit">Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

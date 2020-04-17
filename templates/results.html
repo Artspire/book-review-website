@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Results
+{% endblock %}
+
+{% block main %}
+    <div class="container">
+        <div class="card rounded">
+            <div id="cb-2" class="card-body p-5">
+                <div style="padding-bottom: 10px">
+                    <h3>SEARCH RESULTS</h3>
+                </div>
+                <p>You searched for: "{{ input }}"</p>
+                <p>Click on the title of the book to a leave review or on its ISBN number to get the data as JSON object.</p>
+                <table class="table table-hover" style="table-layout: fixed">
+                    <tr class="thead-dark">
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Year</th>
+                        <th>ISBN</th>
+                    </tr>
+                    <tr class="thead-dark">
+                    {% for book in books %}
+                        <td><a href="{{ url_for('book', book_isbn=book.isbn) }}">{{ book.title }}</a></td>
+                        <td>{{ book.author }}</td>
+                        <td>{{ book.year }}</td>
+                        <td><a href="{{ url_for('book_api', isbn=book.isbn) }}">{{ book.isbn }}</a></td>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+{% endblock %}

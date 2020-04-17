@@ -1,0 +1,128 @@
+nav .navbar-brand {
+    /* size for brand */
+    font-size: x-large;
+    font-weight: bold;
+}
+
+main .form-control {
+    /* center form controls */
+    display: inline-block;
+    /* override Bootstrap's 100% width for form controls */
+    width: auto;
+}
+
+/* Set a background image by replacing the URL below */
+body {
+  background: url('https://wallpaperaccess.com/full/124383.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+  /* scroll horizontally as needed */
+  overflow-x: auto;
+  /* center contents */
+  text-align: center;
+  font-size: medium;
+  min-height: 800px;
+  max-height: auto;
+}
+
+#cb-1 {
+  background-color: #cdb38b;
+}
+
+#cb-2 {
+  background-color: #f5f5dc;
+}
+
+#cb-3 {
+  background-color: #bbbbbb;
+}
+
+#cb-4 {
+  background-color: #8ba5cd;
+  text-align: left;
+}
+
+#review-container {
+  padding-top: 20px;
+}
+
+#review-box {
+  color: darkred;
+  border-bottom: 1px solid rgba(255,255,255,.25);
+}
+
+#review-box-text {
+  border-bottom: 1px solid rgba(255,255,255,.25);
+}
+
+#review-user {
+  color: #1d6b35;
+}
+
+main img {
+    /* constrain images on small screens */
+    max-width: 100%;
+}
+
+#navtitle {
+   color: #f5f5dc;
+   padding-left: 20px;
+}
+
+#foottext {
+  color: white;
+}
+
+#navtext, #navbardrop {
+  color: #cdb38b;
+  padding-bottom: 20px;
+}
+
+#page-image {
+  padding-top: 50px;
+  height: auto;
+}
+
+#book-title, #rating {
+  color: #0059b3;
+}
+
+#goodreads {
+  text-align: left;
+  font-size: 10px;
+}
+
+h2, #book-title, #book-info {
+  text-align: left;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+}
+
+h3 {
+  color: #537fbe;
+}
+
+#error-message, #search-warning {
+  color: #bf0000;
+}
+
+#success-message {
+  color: #01884B;
+  padding-top: 10px;
+}
+
+#search-box {
+  padding-top: 10px;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
