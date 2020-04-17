@@ -306,6 +306,7 @@ def book(book_isbn):
     user = db.execute("SELECT username FROM users WHERE id = :id", {"id": session.get("user_id")}).fetchone()
     db.commit()
 
+    # Get username for storing in reviews table
     username = user[0]
 
     # User reached route via POST (as by submitting a form via POST)
@@ -332,7 +333,7 @@ def book(book_isbn):
                    {"user_id": session.get("user_id"), "username": username, "book_isbn": book_isbn, "rating": rating, "review": request.form.get("review")})
         db.commit()
 
-        # Show success message
+        # Return success page
         return render_template("success.html", message="Your review has been submitted")
 
     # User reached route via GET (as by clicking a link or via redirect)
@@ -352,10 +353,6 @@ def book_api(isbn):
     # If the ISBN is invalid or not in database
     if book is None:
         return jsonify({"error": "ISBN not found"}), 404
-
-    avg = db.execute("SELECT AVG(rating) FROM reviews WHERE book_isbn = :book_isbn", {"book_isbn": isbn}).fetchall()
-
-    total = db.execute("SELECT COUNT(rating) FROM reviews WHERE book_isbn = :book_isbn", {"book_isbn": isbn}).fetchall()
 
     # Goodreads API request
     res = requests.get("https://www.goodreads.com/book/review_counts.json", params={"key": 'qLpIHOParEa28DxFxLQ', "isbns": isbn})
