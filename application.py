@@ -370,15 +370,3 @@ def book_api(isbn):
             "review_count": goodreads[0]["work_ratings_count"],
             "average_score": goodreads[0]["average_rating"]
         })
-
-
-def errorhandler(e):
-    """Handle error"""
-    if not isinstance(e, HTTPException):
-        e = InternalServerError()
-    return apology(e.name, e.code)
-
-
-# Listen for errors
-for code in default_exceptions:
-    app.errorhandler(code)(errorhandler)
