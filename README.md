@@ -1,8 +1,6 @@
-# Project 1
+# Book review website
 
-<b>Web Programming with Python and JavaScript</b>
-
-For project1, I have made a book review website called Papyrus.
+I have made a book review website called Papyrus.
 
 ## Layout
 
