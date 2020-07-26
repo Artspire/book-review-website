@@ -1,6 +1,8 @@
-# Book review website
+# Papyrus
 
-I have made a book review website called Papyrus.
+Papyrus is book review website that has been built with Flask and makes use of the Goodreads API.
+
+For a video walkthrough, see: https://youtu.be/0QKl6wOAHCU
 
 ## Layout
 
